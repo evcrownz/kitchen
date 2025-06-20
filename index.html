@@ -221,7 +221,7 @@ form{
     }
     
     .container{
-        height: 600px; /* Fixed height instead of viewport-based */
+        height: 750px; /* Increased height */
         width: 95%;
         max-width: 400px;
         position: relative;
@@ -230,33 +230,33 @@ form{
     .form-box {
         bottom: 0;
         width: 100%;
-        height: 420px; /* Fixed height */
+        height: 550px; /* Increased height */
         right: 0;
         padding: 30px;
-        overflow-y: auto; /* Allow scrolling if content is too tall */
+        overflow: hidden; /* No scrolling */
     }
 
     .container.active .form-box{
         right: 0;
-        bottom: 180px; /* Fixed position */
+        bottom: 200px; /* Adjusted position */
     }
 
     .toggle-box::before{
         left: 0;
-        top: -1620px; /* Adjusted for fixed heights */
+        top: -1950px; /* Adjusted for new heights */
         width: 100%;
-        height: 1800px; /* Fixed height */
+        height: 2200px; /* Increased height */
         border-radius: 20vw;
     }
 
     .container.active .toggle-box::before{
-        top: 420px; /* Fixed position */
+        top: 550px; /* Adjusted position */
         left: 0;
     }
 
     .toggle-panel{
         width: 100%;
-        height: 180px; /* Fixed height */
+        height: 200px; /* Increased height */
     }
 
     .toggle-panel.toggle-left{
@@ -266,12 +266,12 @@ form{
 
     .container.active .toggle-panel.toggle-left{
         left: 0;
-        top: -180px; /* Fixed position */
+        top: -200px; /* Adjusted position */
     }
 
     .toggle-panel.toggle-right{
         right: 0;
-        bottom: -180px; /* Fixed position */
+        bottom: -200px; /* Adjusted position */
     }
 
     .container.active .toggle-panel.toggle-right{

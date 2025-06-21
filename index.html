@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Login And Registration Form Using HTML CSS & Javascript | CodingLab</title>
+    <title>Zaf's Kitchen - Login & Registration</title>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 <style>
@@ -19,21 +19,106 @@
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background: linear-gradient(90deg, #1d1d1d, #1d1d1d);
+    padding: 20px;
+    padding-top: 80px;
+}
+
+/* Navigation Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #E75925;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-menu li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: #E75925;
+    transition: width 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: #E75925;
+}
+
+.nav-menu li a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
 }
 
 .container {
     position: relative;
-    width: 850px;
-    height: 550px;
+    width: 765px;
+    height: 495px;
     background: #ffffff;
     border-radius: 30px;
     box-shadow: 0 0 30px rgba(0, 0, 0, .2);
-    margin: 20px;
     overflow: hidden;
+    margin: auto;
 }
 
 .form-box{
@@ -46,7 +131,7 @@ body {
     align-items: center;
     color: #333;
     text-align: center;
-    padding: 40px;
+    padding: 36px;
     z-index: 1;
     transition: .6s ease-in-out 0.8s, visibility 0s 1s;
 }
@@ -68,8 +153,8 @@ form{
 }
 
 .container h1{
-    font-size: 38px;
-    margin: -10px 0;
+    font-size: 34px;
+    margin: -9px 0;
 }
 
 .container h4{
@@ -81,17 +166,17 @@ form{
 
 .input-box {
     position: relative;
-    margin: 30px 0;
+    margin: 27px 0;
 } 
 
 .input-box input{
     width: 100%;
-    padding: 13px 50px 13px 20px;
+    padding: 12px 45px 12px 18px;
     background: #eee;
     border-radius: 8px;
     border: none;
     outline: none;
-    font-size: 16px;
+    font-size: 14px;
     color: #333;
     font-weight: 500;
 }
@@ -171,10 +256,6 @@ form{
         rgb(218, 81, 47),  /* top color overlay */
         rgb(201, 49, 38)   /* bottom color overlay */
     );
-
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     border-radius: 150px;
     z-index: 2;
     transition: 1.4s ease-in-out;
@@ -229,45 +310,78 @@ form{
     box-shadow: none;
 }
 
+/* Mobile Navigation */
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: rgba(29, 29, 29, 0.95);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 30px 0;
+        backdrop-filter: blur(10px);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 15px 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
 @media screen and (max-width: 650px) {
     body {
-        min-height: 100svh; /* Use stable viewport height */
+        min-height: 100svh;
         padding: 10px;
+        padding-top: 80px;
     }
     
     .container{
-        height: 750px; /* Increased height */
+        height: 750px;
         width: 95%;
         max-width: 400px;
         position: relative;
+        margin: 20px auto;
     }
 
     .form-box {
         bottom: 0;
         width: 100%;
-        height: 550px; /* Increased height */
+        height: 550px;
         right: 0;
         padding: 30px;
-        overflow: hidden; /* No scrolling */
+        overflow: hidden;
     }
 
     .container.active .form-box{
         right: 0;
-        bottom: 200px; /* Adjusted position */
+        bottom: 200px;
     }
 
     .toggle-box::before{
         left: 0;
-        top: -1950px; /* Adjusted for new heights */
+        top: -1950px;
         width: 100%;
-        height: 2200px; /* Increased height */
+        height: 2200px;
         border-radius: 20vw;
          background: #E75925;
     }
 
-
     .container.active .toggle-box::before{
-        top: 550px; /* Adjusted position */
+        top: 550px;
         left: 0;
     }
 
@@ -288,7 +402,7 @@ form{
 
     .toggle-panel{
         width: 100%;
-        height: 200px; /* Increased height */
+        height: 200px;
     }
 
     .toggle-panel.toggle-left{
@@ -298,12 +412,12 @@ form{
 
     .container.active .toggle-panel.toggle-left{
         left: 0;
-        top: -200px; /* Adjusted position */
+        top: -200px;
     }
 
     .toggle-panel.toggle-right{
         right: 0;
-        bottom: -200px; /* Adjusted position */
+        bottom: -200px;
     }
 
     .container.active .toggle-panel.toggle-right{
@@ -333,6 +447,21 @@ form{
 </style>
 
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#" class="logo">Zaf's Kitchen</a>
+        <ul class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
     <div class="container">
         <div class="form-box signin">
             <form action="">
@@ -405,13 +534,30 @@ form{
       const container = document.querySelector('.container');
       const signupbtn = document.querySelector('.signup-btn');
       const signinbtn = document.querySelector('.Signin-btn');
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.querySelector('.nav-menu');
 
+      // Login form toggle functionality
       signupbtn.addEventListener('click', () => {
         container.classList.add('active');
       });
 
       signinbtn.addEventListener('click', () => {
         container.classList.remove('active');
+      });
+
+      // Mobile navigation toggle
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll('.nav-menu li a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+        });
       });
 </script>
 </body>
